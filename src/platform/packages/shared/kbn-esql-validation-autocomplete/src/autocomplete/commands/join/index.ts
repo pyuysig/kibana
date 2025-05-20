@@ -8,21 +8,17 @@
  */
 
 import { i18n } from '@kbn/i18n';
-import { type ESQLAstItem, ESQLAst, ESQLCommand, mutate, LeafPrinter } from '@kbn/esql-ast';
+import { ESQLCommand, mutate, LeafPrinter } from '@kbn/esql-ast';
 import type { ESQLAstJoinCommand } from '@kbn/esql-ast';
 import type { ESQLCallbacks } from '../../../shared/types';
 import {
-  CommandBaseDefinition,
   CommandDefinition,
+  CommandSuggestFunction,
+  CommandSuggestParams,
   CommandTypeDefinition,
-  type SupportedDataType,
 } from '../../../definitions/types';
-import {
-  getPosition,
-  joinIndicesToSuggestions,
-  suggestionIntersection,
-  suggestionUnion,
-} from './util';
+import { specialIndicesToSuggestions } from '../../helper';
+import { getPosition, suggestionIntersection, suggestionUnion } from './util';
 import { TRIGGER_SUGGESTION_COMMAND, buildFieldsDefinitionsWithMetadata } from '../../factories';
 import type { GetColumnsByTypeFn, SuggestionRawDefinition } from '../../types';
 import { commaCompleteItem, pipeCompleteItem } from '../../complete_items';
@@ -59,11 +55,11 @@ const suggestFields = async (
   ]);
 
   const supportsControls = callbacks?.canSuggestVariables?.() ?? false;
-  const getVariablesByType = callbacks?.getVariablesByType;
+  const getVariables = callbacks?.getVariables;
   const joinFields = buildFieldsDefinitionsWithMetadata(
     lookupIndexFields!,
     { supportsControls },
-    getVariablesByType
+    getVariables
   );
 
   const intersection = suggestionIntersection(joinFields, sourceFields);
@@ -96,18 +92,13 @@ const suggestFields = async (
   return [...intersection, ...union];
 };
 
-export const suggest: CommandBaseDefinition<'join'>['suggest'] = async (
-  innerText: string,
-  command: ESQLCommand<'join'>,
-  getColumnsByType: GetColumnsByTypeFn,
-  columnExists: (column: string) => boolean,
-  getSuggestedVariableName: () => string,
-  getExpressionType: (expression: ESQLAstItem | undefined) => SupportedDataType | 'unknown',
-  getPreferences?: () => Promise<{ histogramBarTarget: number } | undefined>,
-  fullTextAst?: ESQLAst,
-  definition?: CommandDefinition<'join'>,
-  callbacks?: ESQLCallbacks
-): Promise<SuggestionRawDefinition[]> => {
+export const suggest: CommandSuggestFunction<'join'> = async ({
+  innerText,
+  command,
+  getColumnsByType,
+  definition,
+  callbacks,
+}: CommandSuggestParams<'join'>): Promise<SuggestionRawDefinition[]> => {
   let commandText: string = innerText;
 
   if (command.location) {
@@ -150,7 +141,7 @@ export const suggest: CommandBaseDefinition<'join'>['suggest'] = async (
         return [];
       }
 
-      return joinIndicesToSuggestions(joinIndices.indices);
+      return specialIndicesToSuggestions(joinIndices.indices);
     }
 
     case 'after_index': {

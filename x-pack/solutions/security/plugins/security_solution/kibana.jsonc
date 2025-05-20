@@ -19,7 +19,6 @@
       "alerting",
       "cases",
       "cloud",
-      "cloudDefend",
       "cloudSecurityPosture",
       "contentManagement",
       "dashboard",
@@ -32,9 +31,7 @@
       "features",
       "fieldFormats",
       "inspector",
-      "lens",
       "licensing",
-      "maps",
       "navigation",
       "ruleRegistry",
       "sessionView",
@@ -71,7 +68,9 @@
       "usageCollection",
       "lists",
       "home",
+      "lens",
       "management",
+      "maps",
       "dataViewFieldEditor",
       "osquery",
       "savedObjectsTaggingOss",
@@ -85,10 +84,12 @@
       "kibanaUtils",
       "kibanaReact",
       "usageCollection",
+      "lens",
       "lists",
       "ml",
       "unifiedSearch",
-      "esql"
+      "esql",
+      "maps"
     ],
     "extraPublicDirs": [
       "common"

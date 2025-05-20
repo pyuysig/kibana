@@ -74,6 +74,63 @@ Object {
       ],
       "type": "any",
     },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
+    },
     "timeout": Object {
       "flags": Object {
         "default": [Function],
@@ -194,6 +251,63 @@ Object {
         },
       ],
       "type": "any",
+    },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
     },
     "timeout": Object {
       "flags": Object {
@@ -434,6 +548,63 @@ Object {
         },
       ],
       "type": "string",
+    },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
     },
     "temperature": Object {
       "flags": Object {
@@ -840,6 +1011,63 @@ Object {
       ],
       "type": "string",
     },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
+    },
     "temperature": Object {
       "flags": Object {
         "default": [Function],
@@ -1200,6 +1428,63 @@ Object {
       ],
       "type": "string",
     },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
+    },
     "temperature": Object {
       "flags": Object {
         "default": [Function],
@@ -1420,6 +1705,63 @@ Object {
       ],
       "type": "any",
     },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
+    },
   },
   "type": "object",
 }
@@ -1451,7 +1793,7 @@ Object {
     },
     "defaultModel": Object {
       "flags": Object {
-        "default": "anthropic.claude-3-5-sonnet-20240620-v1:0",
+        "default": "us.anthropic.claude-3-7-sonnet-20250219-v1:0",
         "error": [Function],
         "presence": "optional",
       },
@@ -4279,6 +4621,103 @@ Object {
     "presence": "optional",
   },
   "keys": Object {
+    "attachments": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "items": Array [
+        Object {
+          "flags": Object {
+            "default": Object {
+              "special": "deep",
+            },
+            "error": [Function],
+            "presence": "optional",
+          },
+          "keys": Object {
+            "content": Object {
+              "flags": Object {
+                "error": [Function],
+              },
+              "rules": Array [
+                Object {
+                  "args": Object {
+                    "method": [Function],
+                  },
+                  "name": "custom",
+                },
+              ],
+              "type": "string",
+            },
+            "contentType": Object {
+              "flags": Object {
+                "default": [Function],
+                "error": [Function],
+                "presence": "optional",
+              },
+              "metas": Array [
+                Object {
+                  "x-oas-optional": true,
+                },
+              ],
+              "rules": Array [
+                Object {
+                  "args": Object {
+                    "method": [Function],
+                  },
+                  "name": "custom",
+                },
+              ],
+              "type": "string",
+            },
+            "encoding": Object {
+              "flags": Object {
+                "default": [Function],
+                "error": [Function],
+                "presence": "optional",
+              },
+              "metas": Array [
+                Object {
+                  "x-oas-optional": true,
+                },
+              ],
+              "rules": Array [
+                Object {
+                  "args": Object {
+                    "method": [Function],
+                  },
+                  "name": "custom",
+                },
+              ],
+              "type": "string",
+            },
+            "filename": Object {
+              "flags": Object {
+                "error": [Function],
+              },
+              "rules": Array [
+                Object {
+                  "args": Object {
+                    "method": [Function],
+                  },
+                  "name": "custom",
+                },
+              ],
+              "type": "string",
+            },
+          },
+          "type": "object",
+        },
+      ],
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "array",
+    },
     "bcc": Object {
       "flags": Object {
         "default": Array [],
@@ -4570,6 +5009,63 @@ Object {
       ],
       "type": "array",
     },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
+    },
     "temperature": Object {
       "flags": Object {
         "default": [Function],
@@ -4731,6 +5227,63 @@ Object {
       ],
       "type": "array",
     },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
+    },
     "temperature": Object {
       "flags": Object {
         "default": [Function],
@@ -4772,6 +5325,19 @@ Object {
     "presence": "optional",
   },
   "keys": Object {
+    "maxOutputTokens": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "number",
+    },
     "messages": Object {
       "flags": Object {
         "error": [Function],
@@ -4870,6 +5436,63 @@ Object {
         },
       ],
       "type": "string",
+    },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
     },
     "temperature": Object {
       "flags": Object {
@@ -5028,6 +5651,19 @@ Object {
     "presence": "optional",
   },
   "keys": Object {
+    "maxOutputTokens": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "number",
+    },
     "messages": Object {
       "flags": Object {
         "error": [Function],
@@ -5126,6 +5762,63 @@ Object {
         },
       ],
       "type": "string",
+    },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
     },
     "temperature": Object {
       "flags": Object {
@@ -5195,6 +5888,19 @@ Object {
     "presence": "optional",
   },
   "keys": Object {
+    "maxOutputTokens": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "number",
+    },
     "messages": Object {
       "flags": Object {
         "error": [Function],
@@ -5293,6 +5999,63 @@ Object {
         },
       ],
       "type": "string",
+    },
+    "telemetryMetadata": Object {
+      "flags": Object {
+        "default": [Function],
+        "error": [Function],
+        "presence": "optional",
+      },
+      "keys": Object {
+        "aggregateBy": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+        "pluginId": Object {
+          "flags": Object {
+            "default": [Function],
+            "error": [Function],
+            "presence": "optional",
+          },
+          "metas": Array [
+            Object {
+              "x-oas-optional": true,
+            },
+          ],
+          "rules": Array [
+            Object {
+              "args": Object {
+                "method": [Function],
+              },
+              "name": "custom",
+            },
+          ],
+          "type": "string",
+        },
+      },
+      "metas": Array [
+        Object {
+          "x-oas-optional": true,
+        },
+      ],
+      "type": "object",
     },
     "temperature": Object {
       "flags": Object {
@@ -9540,30 +10303,73 @@ Object {
       ],
       "type": "string",
     },
-    "message": Object {
+    "prompts": Object {
       "flags": Object {
         "error": [Function],
       },
-      "metas": Array [
+      "items": Array [
         Object {
-          "x-oas-min-length": 1,
+          "flags": Object {
+            "default": Object {
+              "special": "deep",
+            },
+            "error": [Function],
+            "presence": "optional",
+          },
+          "keys": Object {
+            "message": Object {
+              "flags": Object {
+                "error": [Function],
+              },
+              "metas": Array [
+                Object {
+                  "x-oas-min-length": 1,
+                },
+              ],
+              "rules": Array [
+                Object {
+                  "args": Object {
+                    "method": [Function],
+                  },
+                  "name": "custom",
+                },
+                Object {
+                  "args": Object {
+                    "method": [Function],
+                  },
+                  "name": "custom",
+                },
+              ],
+              "type": "string",
+            },
+            "statuses": Object {
+              "flags": Object {
+                "error": [Function],
+              },
+              "items": Array [
+                Object {
+                  "flags": Object {
+                    "error": [Function],
+                    "presence": "optional",
+                  },
+                  "rules": Array [
+                    Object {
+                      "args": Object {
+                        "method": [Function],
+                      },
+                      "name": "custom",
+                    },
+                  ],
+                  "type": "string",
+                },
+              ],
+              "type": "array",
+            },
+          },
+          "type": "object",
         },
       ],
-      "rules": Array [
-        Object {
-          "args": Object {
-            "method": [Function],
-          },
-          "name": "custom",
-        },
-        Object {
-          "args": Object {
-            "method": [Function],
-          },
-          "name": "custom",
-        },
-      ],
-      "type": "string",
+      "type": "array",
     },
     "rule": Object {
       "flags": Object {

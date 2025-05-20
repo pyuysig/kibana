@@ -27,7 +27,7 @@ const getDeprecationCountByLevel = (deprecations: EnrichedDeprecationInfo[]) => 
   const warningDeprecations: EnrichedDeprecationInfo[] = [];
 
   deprecations.forEach((deprecation) => {
-    if (deprecation.isCritical) {
+    if (deprecation.level === 'critical') {
       criticalDeprecations.push(deprecation);
       return;
     }
@@ -77,7 +77,7 @@ const getBatchReindexLink = (docLinks: DocLinksStart) => {
   return (
     <FormattedMessage
       id="xpack.upgradeAssistant.esDeprecations.batchReindexingDocsDescription"
-      defaultMessage="To start multiple reindexing tasks in a single request, use the Kibana {docsLink}."
+      defaultMessage="To start upgrading multiple indices in a single request, use the Kibana {docsLink}. Note: this API does not support data streams."
       values={{
         docsLink: (
           <EuiLink

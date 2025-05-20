@@ -66,7 +66,15 @@ export {
   KnowledgeBaseEntryRole,
   concatenateChatCompletionChunks,
   StreamingChatResponseEventType,
+  ConversationAccess,
+  KnowledgeBaseType,
+  KnowledgeBaseState,
+  ELSER_ON_ML_NODE_INFERENCE_ID,
+  ELSER_IN_EIS_INFERENCE_ID,
+  E5_SMALL_INFERENCE_ID,
+  E5_LARGE_IN_EIS_INFERENCE_ID,
 } from '../common';
+
 export type {
   CompatibleJSONSchema,
   Conversation,
@@ -76,8 +84,6 @@ export type {
   ChatCompletionChunkEvent,
   ShortIdTable,
 } from '../common';
-
-export { KnowledgeBaseType } from '../common';
 
 export type { TelemetryEventTypeWithPayload } from './analytics';
 export { ObservabilityAIAssistantTelemetryEventType } from './analytics/telemetry_event_type';

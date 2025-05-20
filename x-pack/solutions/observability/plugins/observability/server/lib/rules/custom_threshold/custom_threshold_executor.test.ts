@@ -6,8 +6,13 @@
  */
 
 import { RuleExecutorServicesMock, alertsMock } from '@kbn/alerting-plugin/server/mocks';
+import { SavedObjectsErrorHelpers } from '@kbn/core-saved-objects-server';
 import { searchSourceCommonMock } from '@kbn/data-plugin/common/search/search_source/mocks';
 import type { ISearchSource } from '@kbn/data-plugin/common';
+import {
+  getErrorSource,
+  TaskErrorSource,
+} from '@kbn/task-manager-plugin/server/task_running/errors';
 import { createCustomThresholdExecutor } from './custom_threshold_executor';
 import { FIRED_ACTION, NO_DATA_ACTION } from './constants';
 import { Evaluation } from './lib/evaluate_rule';
@@ -183,7 +188,7 @@ const setup = () => {
     ...alertsServices,
     getSearchSourceClient: jest.fn().mockResolvedValue({
       ...searchSourceCommonMock,
-      create: jest.fn(() => Promise.resolve(mockedSearchSource)),
+      createLazy: jest.fn(() => Promise.resolve(mockedSearchSource)),
     }),
   };
 
@@ -233,6 +238,64 @@ const setup = () => {
 describe('The custom threshold alert type', () => {
   describe('with average aggregation', () => {
     setup();
+
+    describe('check error scenarios', () => {
+      beforeEach(() => jest.clearAllMocks());
+      afterAll(() => clearInstances());
+      const execute = (
+        comparator: COMPARATORS,
+        threshold: number[],
+        sourceId: string = 'default'
+      ) =>
+        executor({
+          ...mockOptions,
+          services,
+          params: {
+            ...mockOptions.params,
+            sourceId,
+            criteria: [
+              {
+                ...customThresholdNonCountCriterion,
+                comparator,
+                threshold,
+              },
+            ],
+          },
+        });
+      const setResults = (
+        comparator: COMPARATORS,
+        threshold: number[],
+        shouldFire: boolean = false,
+        isNoData: boolean = false
+      ) =>
+        setEvaluationResults([
+          {
+            '*': {
+              ...customThresholdNonCountCriterion,
+              comparator,
+              threshold,
+              currentValue: 1.0,
+              timestamp: new Date().toISOString(),
+              shouldFire,
+              isNoData,
+              bucketKey: { groupBy0: '*' },
+            },
+          },
+        ]);
+      test('should throw user error if data view is not found', async () => {
+        searchSourceCommonMock.createLazy.mockImplementationOnce(() => {
+          throw SavedObjectsErrorHelpers.createGenericNotFoundError('index-pattern', 'abc');
+        });
+
+        try {
+          setResults(COMPARATORS.GREATER_THAN, [0.75], true);
+          await execute(COMPARATORS.GREATER_THAN, [0.75]);
+        } catch (err) {
+          expect(getErrorSource(err)).toBe(TaskErrorSource.USER);
+          expect(err.message).toBe('Saved object [index-pattern/abc] not found');
+        }
+      });
+    });
 
     describe('querying the entire infrastructure', () => {
       beforeEach(() => jest.clearAllMocks());
@@ -1573,6 +1636,11 @@ describe('The custom threshold alert type', () => {
                 value: 'a',
               },
             ],
+            grouping: {
+              host: {
+                name: 'a',
+              },
+            },
             host: {
               name: 'a',
             },
@@ -1659,6 +1727,47 @@ describe('The custom threshold alert type', () => {
             },
           },
         });
+      });
+      test('includes reason message in the recovered alert context pulled from the last active alert ', async () => {
+        setEvaluationResults([{}]);
+        const mockedSetContext = jest.fn();
+        services.alertsClient.getRecoveredAlerts.mockImplementation((params: any) => {
+          return [
+            {
+              alert: {
+                meta: [],
+                state: [],
+                context: {},
+                id: 'host-0',
+                getId: jest.fn().mockReturnValue('host-0'),
+                getUuid: jest.fn().mockReturnValue('mockedUuid'),
+                getStart: jest.fn().mockReturnValue('2024-07-18T08:09:05.697Z'),
+              },
+              hit: {
+                'host.name': 'host-0',
+                'kibana.alert.reason': 'This is reason msg for the alert',
+              },
+            },
+          ];
+        });
+        services.alertFactory.done.mockImplementation(() => {
+          return {
+            getRecoveredAlerts: jest.fn().mockReturnValue([
+              {
+                setContext: mockedSetContext,
+                getId: jest.fn().mockReturnValue('mockedId'),
+              },
+            ]),
+          };
+        });
+        await execute(COMPARATORS.GREATER_THAN, [0.9]);
+        expect(services.alertsClient.setAlertData).toBeCalledWith(
+          expect.objectContaining({
+            context: expect.objectContaining({
+              reason: 'This is reason msg for the alert',
+            }),
+          })
+        );
       });
     });
 

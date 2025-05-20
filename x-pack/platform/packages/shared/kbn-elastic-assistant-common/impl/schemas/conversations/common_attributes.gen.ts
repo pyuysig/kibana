@@ -16,10 +16,10 @@
 
 import { z } from '@kbn/zod';
 
-import { NonEmptyString, User } from '../common_attributes.gen';
+import { NonEmptyTimestamp, NonEmptyString, User } from '../common_attributes.gen';
 
 /**
- * trace Data
+ * Trace Data
  */
 export type TraceData = z.infer<typeof TraceData>;
 export const TraceData = z.object({
@@ -81,6 +81,15 @@ export const EsqlContentReference = BaseContentReference.merge(
      * Label of the query
      */
     label: z.string(),
+    /**
+     * Time range to select in the time picker.
+     */
+    timerange: z
+      .object({
+        from: z.string(),
+        to: z.string(),
+      })
+      .optional(),
   })
 );
 
@@ -164,13 +173,13 @@ export const ContentReferences = z
 export type MessageMetadata = z.infer<typeof MessageMetadata>;
 export const MessageMetadata = z.object({
   /**
-   * Data refered to by the message content.
+   * Data referred to by the message content.
    */
   contentReferences: ContentReferences.optional(),
 });
 
 /**
- * Replacements object used to anonymize/deanomymize messsages
+ * Replacements object used to anonymize/deanonymize messages
  */
 export type Replacements = z.infer<typeof Replacements>;
 export const Replacements = z.object({}).catchall(z.string());
@@ -230,17 +239,17 @@ export const Message = z.object({
   /**
    * The timestamp message was sent or received.
    */
-  timestamp: NonEmptyString,
+  timestamp: NonEmptyTimestamp,
   /**
    * Is error message.
    */
   isError: z.boolean().optional(),
   /**
-   * trace Data
+   * Trace data
    */
   traceData: TraceData.optional(),
   /**
-   * metadata
+   * Metadata
    */
   metadata: MessageMetadata.optional(),
 });
@@ -248,15 +257,15 @@ export const Message = z.object({
 export type ApiConfig = z.infer<typeof ApiConfig>;
 export const ApiConfig = z.object({
   /**
-   * connector id
+   * Connector ID
    */
   connectorId: z.string(),
   /**
-   * action type id
+   * Action type ID
    */
   actionTypeId: z.string(),
   /**
-   * defaultSystemPromptId
+   * Default system prompt ID
    */
   defaultSystemPromptId: z.string().optional(),
   /**
@@ -264,7 +273,7 @@ export const ApiConfig = z.object({
    */
   provider: Provider.optional(),
   /**
-   * model
+   * Model
    */
   model: z.string().optional(),
 });
@@ -278,7 +287,7 @@ export const ConversationSummary = z.object({
   /**
    * The timestamp summary was updated.
    */
-  timestamp: NonEmptyString.optional(),
+  timestamp: NonEmptyTimestamp.optional(),
   /**
    * Define if summary is marked as publicly available.
    */
@@ -312,13 +321,13 @@ export const ConversationResponse = z.object({
    */
   category: ConversationCategory,
   summary: ConversationSummary.optional(),
-  timestamp: NonEmptyString.optional(),
+  timestamp: NonEmptyTimestamp.optional(),
   /**
    * The last time conversation was updated.
    */
   updatedAt: z.string().optional(),
   /**
-   * The last time conversation was updated.
+   * The time conversation was created.
    */
   createdAt: z.string(),
   replacements: Replacements.optional(),
@@ -332,11 +341,7 @@ export const ConversationResponse = z.object({
    */
   apiConfig: ApiConfig.optional(),
   /**
-   * Is default conversation.
-   */
-  isDefault: z.boolean().optional(),
-  /**
-   * excludeFromLastConversationStorage.
+   * Exclude from last conversation storage.
    */
   excludeFromLastConversationStorage: z.boolean().optional(),
   /**
@@ -366,7 +371,7 @@ export const ConversationUpdateProps = z.object({
   apiConfig: ApiConfig.optional(),
   summary: ConversationSummary.optional(),
   /**
-   * excludeFromLastConversationStorage.
+   * Exclude from last conversation storage.
    */
   excludeFromLastConversationStorage: z.boolean().optional(),
   replacements: Replacements.optional(),
@@ -395,11 +400,7 @@ export const ConversationCreateProps = z.object({
    */
   apiConfig: ApiConfig.optional(),
   /**
-   * Is default conversation.
-   */
-  isDefault: z.boolean().optional(),
-  /**
-   * excludeFromLastConversationStorage.
+   * Exclude from last conversation storage.
    */
   excludeFromLastConversationStorage: z.boolean().optional(),
   replacements: Replacements.optional(),

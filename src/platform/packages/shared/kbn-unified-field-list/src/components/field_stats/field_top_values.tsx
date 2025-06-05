@@ -131,6 +131,11 @@ export const getBucketsValuesCount = (
   return buckets?.reduce((prev, bucket) => bucket.count + prev, 0) || 0;
 };
 
-export const getOtherCount = (bucketsValuesCount: number, sampledValuesCount: number): number => {
-  return sampledValuesCount && bucketsValuesCount ? sampledValuesCount - bucketsValuesCount : 0;
+export const getOtherCount = (
+  bucketsValuesCount: number,
+  sampledValuesCount: number
+): number => {
+  return sampledValuesCount && bucketsValuesCount
+    ? Math.max(sampledValuesCount - bucketsValuesCount, 0)
+    : 0;
 };
